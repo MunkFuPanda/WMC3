@@ -1,20 +1,20 @@
 package at.ac.htlwrn.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "product_order")
 public class ProductOrder {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToOne
+    private Order order;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    private Product product;
+
+    @Column
+    private int Quantity;
 }
