@@ -38,7 +38,7 @@ public class OrderModel {
     private Date canceledDate;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true)
-    private List<OrderModel> products;
+    private List<OrderedProduct> products;
 
     public Long getId() {
         return id;
@@ -112,11 +112,11 @@ public class OrderModel {
         this.canceledDate = canceledDate;
     }
 
-    public List<OrderModel> getProducts() {
+    public List<OrderedProduct> getProducts() {
         return products;
     }
 
-    public void setProducts(List<OrderModel> products) {
+    public void setProducts(List<OrderedProduct> products) {
         this.products = products;
     }
 }
